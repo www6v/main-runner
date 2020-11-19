@@ -11,6 +11,17 @@
 	<properties>
 		<slf4j.version>1.7.29</slf4j.version>
 		<log4j2.version>2.13.0</log4j2.version>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<spring.boot.version>2.1.0.RELEASE</spring.boot.version>
+		<mysql.version>8.0.21</mysql.version>
+		<hutool.version>5.4.1</hutool.version>
+		<guava.version>29.0-jre</guava.version>
+		<user.agent.version>1.20</user.agent.version>
 	</properties>
 
 	<dependencies>
@@ -30,6 +41,26 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.13</version>
+		</dependency>
+
+		<!-- add -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.tuhu.renault</groupId>
+			<!--      <artifactId>renault-starter-redis-lettuce</artifactId>-->
+			<artifactId>chassis-starter-tikv</artifactId>
+			<version>2.0.0-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>
@@ -57,8 +88,44 @@
 				<artifactId>log4j-core</artifactId>
 				<version>${log4j2.version}</version>
 			</dependency>
+
+
+
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring.boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql.version}</version>
+			</dependency>
+			<!-- hutool工具类 -->
+			<dependency>
+				<groupId>cn.hutool</groupId>
+				<artifactId>hutool-all</artifactId>
+				<version>${hutool.version}</version>
+			</dependency>
+			<!-- guava工具类 -->
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${guava.version}</version>
+			</dependency>
+			<!-- 解析 UserAgent 信息 -->
+			<dependency>
+				<groupId>eu.bitwalker</groupId>
+				<artifactId>UserAgentUtils</artifactId>
+				<version>${user.agent.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
+
+
 
 	<build>
 		<plugins>
